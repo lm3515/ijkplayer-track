@@ -1,19 +1,21 @@
-# ijkplayer-track
+## ijkplayer-track
 通过ijkplayer实现切换音轨，适用于ios、android
-
 4个文件为核心代码在ijkmedia/ijkplayer中实现
 
-首先在ijkplayer.h中添加两个方法：
+### 首先在ijkplayer.h中添加两个方法：
 
+```C
 /* 获取音轨信息 */
 
 int ijkmp_get_audio_track(IjkMediaPlayer *mp);
 
 void ijkmp_switch_audio_track(IjkMediaPlayer *mp, int tracksNum, int index);
 
-ijkplayer.c方法实现：
-/*  -- 音轨信息----  */
+```
 
+### ijkplayer.c方法实现：
+```C
+/*  -- 音轨信息----  */
 int ijkmp_get_audio_track(IjkMediaPlayer *mp)
 {
     assert(mp);
@@ -32,21 +34,20 @@ void ijkmp_switch_audio_track(IjkMediaPlayer *mp, int tracksNum, int index)
     ffp_select_track_l(mp->ffplayer, tracksNum, index);
     pthread_mutex_unlock(&mp->mutex);
 }
+```
 
-
-ff_ffplay.h中添加两个方法：
-
+###  ff_ffplay.h中添加两个方法：
+```C
 // 获取音轨信息
 int ffp_get_track_info_l(FFPlayer *ffp);
 void ffp_select_track_l(FFPlayer *ffp, int tracksNum, int index);
+```
 
-
-ff_ffplay.c实现：
-/* 音轨信息 */
-//获取音轨信息
-
+### ff_ffplay.c实现：
 
 ```C
+/* 音轨信息 */
+//获取音轨信息
 int ffp_get_track_info_l(FFPlayer *ffp)
 {
     if (!ffp)
