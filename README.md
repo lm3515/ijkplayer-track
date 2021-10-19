@@ -45,6 +45,8 @@ ff_ffplay.c实现：
 /* 音轨信息 */
 //获取音轨信息
 
+
+```C
 int ffp_get_track_info_l(FFPlayer *ffp)
 {
     if (!ffp)
@@ -127,3 +129,5 @@ the_end:
     //传递两个参数tracksNum：音轨的个数，stream_index：第几个音轨
     ffp_set_stream_selected(ffp, tracksNum, stream_index);
 }
+
+```
