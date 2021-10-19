@@ -1,5 +1,5 @@
 ## ijkplayer-track
-通过ijkplayer实现切换音轨，适用于ios、android
+通过ijkplayer实现切换音轨，适用于iOS、android
 4个文件为核心代码在ijkmedia/ijkplayer中实现
 
 ### 首先在ijkplayer.h中添加两个方法：
